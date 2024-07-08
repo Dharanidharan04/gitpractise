@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-that is a
-froksop
-=======
   this is this
   fetgg
   fddggg
->>>>>>> 50a940f3985f74e97f816d74de1777e9cf421249
+
