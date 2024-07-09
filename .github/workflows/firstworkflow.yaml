@@ -22,3 +22,8 @@ jobs:
     steps:
       - name: echo a powershell
         run: Write-Output "powershell l"
+  clonerepo-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: gitclone
+        uses: actions/checkout@v4
