@@ -17,7 +17,7 @@ jobs:
       - name: view sw version
         run: sw_vers
   dependant-job:
-    runs-on: windows
+    runs-on: windows-latest
     needs: run-shell-commands
     steps:
       - name: echo a powershell
