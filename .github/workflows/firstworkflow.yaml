@@ -21,4 +21,4 @@ jobs:
     needs: run-shell-commands
     steps:
       - name: echo a powershell
-        run: Write-Output "powershell"
+        run: Write-Output "powershell k"
