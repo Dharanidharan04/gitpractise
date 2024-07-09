@@ -11,3 +11,14 @@ jobs:
         run: |
           node -v
           npm -v
+  parallel-jobs:
+    runs-on: macos-latest
+    steps:
+      - name: view sw version
+        run: sw_vers
+  dependant-job:
+    runs-on: windows
+    needs: run-shell-commands
+    steps:
+      - name: echo a powershell
+        run: Write-Output "powershell"
