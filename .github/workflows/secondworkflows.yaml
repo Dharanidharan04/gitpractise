@@ -7,4 +7,4 @@ jobs:
     echo-string:
       runs-on: ubuntu-latest
       steps:
-        - run: echo "this is second workflows"
+        - run: echo "this is second workflowss"
