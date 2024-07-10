@@ -8,3 +8,8 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - run: echo "this is second workflowss"
+    needjob:
+      runs-on: ubuntu-latest
+      needs:  echo-string
+      steps:
+        - run: echo "this is needed part" 
