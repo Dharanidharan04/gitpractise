@@ -28,8 +28,8 @@ jobs:
         needs: prepare-os-version
         strategy:
             matrix:
-                os: ${{ fromJson('need.prepare-os-version.Outputs.matrix').os}}
-                version: ${{ fromJson('need.prepare-os-version.Outputs.matrix').vesion}}
+                os: ${{ fromJson('need.prepare-os-version.outputs.matrix').os}}
+                version: ${{ fromJson('need.prepare-os-version.outputs.matrix').vesion}}
         runs-on: ${{ matrix.os}}
         steps:
            - run: node -v
