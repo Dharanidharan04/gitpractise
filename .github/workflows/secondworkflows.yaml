@@ -1,0 +1,10 @@
+name: Second Work folw 
+on : 
+    workflow_run:
+        workflows: [First work flow]
+        types: [completed]
+jobs:
+    echo-string:
+      runs-on: ubuntu-latest
+      steps:
+        - run: echo "this is second workflow"
