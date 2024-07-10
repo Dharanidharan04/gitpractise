@@ -1,0 +1,42 @@
+name: matrix
+on: 
+    workflow_dispatch:
+        inputs:
+            os:
+                description: Operating system
+                default: "windows"
+                type: string
+            version:
+                description: Versions
+                default: "14,15,16"
+                type: string
+
+jobs:
+    prepare-os-version:
+        runs-on: ubuntu-latest
+        outputs:
+            matrix-array: ${{steps.matrix.outputs.result}}
+        steps:
+            - uses: actions/github-scripts@v6
+              id: matrix
+              with:
+                script: "return { os:context.payload.inputs['os'].split(','), 'version':context.payload.inputs['version'].split(',') }"
+                result: json
+            - run: echo "${{steps.matrix.outputs.result}}"
+    
+    matrix-jobs:
+        needs: prepare-os-version
+        strategy:
+            matrix:
+                os: ${{ fromJson('node.prepare-os-version.Outputs.matrix').os}}
+                version: ${{ fromJson('node.prepare-os-version.Outputs.matrix').vesion}}
+        runs-on: ${{ matrix.os}}
+        steps:
+           - run: node -v
+           - uses: actions/setup-node@v3
+             with:
+                version: ${{matrix.version}}
+           - run: node -v
+
+           
+
