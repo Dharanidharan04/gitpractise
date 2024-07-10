@@ -29,3 +29,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - run: echo "this is echo"
+            - run: |
+                echo "String ${{inputs.string}}"
+                echo "number ${{inputs.number}}"
+                echo "number ${{inputs.options}}"
+                
