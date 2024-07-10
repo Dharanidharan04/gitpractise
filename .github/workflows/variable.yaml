@@ -21,5 +21,9 @@ jobs:
               run: echo "${{ env.var2 }}"
             - name: to print the global
               run: echo "${{ env.var1 }}"
+            - name: to print dynamic value
+              run: |
+               echo "newvariable=$(date)" >> $GITHUB_ENV
+               echo $newvariable 
 
     
