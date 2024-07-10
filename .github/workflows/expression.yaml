@@ -17,3 +17,4 @@ jobs:
             - name: Dump Contexts
               run: |
                 echo '${{ toJson(github) }}'
+                sleep 30
