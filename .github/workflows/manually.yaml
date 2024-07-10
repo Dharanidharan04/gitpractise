@@ -30,7 +30,7 @@ jobs:
         steps:
             - run: echo "this is echo"
             - run: |
-                echo "String ${{inputs.string}}"
+                echo "String ${{inputs.strings}}"
                 echo "number ${{inputs.number}}"
                 echo "number ${{inputs.options}}"
                 
