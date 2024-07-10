@@ -23,13 +23,14 @@ jobs:
                 script: "return { os:context.payload.inputs['os'].split(','), 'version':context.payload.inputs['version'].split(',') }"
                 result: json
             - run: echo "${{steps.matrix.outputs.result}}"
+            # - run: echo "${{outputs.}}"
     
     matrix-jobs:
         needs: prepare-os-version
         strategy:
             matrix:
-                os: ${{ fromJson('need.prepare-os-version.outputs.matrix').os}}
-                version: ${{ fromJson('need.prepare-os-version.outputs.matrix').version}}
+                os: ${{ fromJson('need.prepare-os-version.outputs.matrix-array').os}}
+                version: ${{ fromJson('need.prepare-os-version.outputs.matrix-array').version}}
         runs-on: ${{ matrix.os}}
         steps:
            - run: node -v
