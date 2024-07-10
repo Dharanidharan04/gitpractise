@@ -15,7 +15,7 @@ jobs:
     prepare-os-version:
         runs-on: ubuntu-latest
         outputs:
-            matrix-array: ${{steps.matrix.outputs.result}}
+            matrix: ${{steps.matrix.outputs.result}}
         steps:
             - uses: actions/github-script@v6
               id: matrix
@@ -29,8 +29,8 @@ jobs:
         needs: prepare-os-version
         strategy:
             matrix:
-                os: ${{ fromJson('need.prepare-os-version.outputs.matrix-array').os}}
-                version: ${{ fromJson('need.prepare-os-version.outputs.matrix-array').version}}
+                os: ${{ fromJson('need.prepare-os-version.outputs.matrix').os}}
+                version: ${{ fromJson('need.prepare-os-version.outputs.matrix').version}}
         runs-on: ${{ matrix.os}}
         steps:
            - run: node -v
