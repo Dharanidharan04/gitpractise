@@ -1,0 +1,25 @@
+name: env_variable
+on: [push]
+
+env:
+    var1: this is global
+
+jobs:
+    value_assigning:
+        runs-on: ubuntu-latest
+        env: 
+            var2: this is global for this job
+        steps:
+            - name: to create a new variable
+              env:
+                valvar: this is local for this step
+              run: echo "${{ env.valvar }}"
+
+            - name: to override the var2
+              env:
+                var2: this is local var2
+              run: echo "${{ env.var2 }}"
+            - name: to print the global
+              run: echo "${{ env.var1 }}"
+
+    
