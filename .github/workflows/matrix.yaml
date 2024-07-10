@@ -29,8 +29,8 @@ jobs:
         needs: prepare-os-version
         strategy:
             matrix:
-                os: ${{ fromJson('need.prepare-os-version.outputs.matrix').os}}
-                version: ${{ fromJson('need.prepare-os-version.outputs.matrix').version}}
+                os: ${{ fromJson('needs.prepare-os-version.outputs.matrix').os}}
+                version: ${{ fromJson('needs.prepare-os-version.outputs.matrix').version}}
         runs-on: ${{ matrix.os}}
         steps:
            - run: node -v
