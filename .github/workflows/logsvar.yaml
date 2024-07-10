@@ -2,14 +2,14 @@ name: logsvar
 on: [push]
 
 jobs:
-  build:
+  log-vars:
     runs-on: ubuntu-latest
     environment: "stages"
     env:
       secretvar: ${{ secrets.boolean_secret }}
-      #envvar: ${{ env.ENV_LEV_VAR}}
+      envvar: ${{ vars.ENV_LEV_VAR}}
     steps:
       - name: to print the secret value
         run: echo "${{ env.secretvar }}"
-     # - name: to print the env var
-      #  run: echo "${{ env.envvar }}" 
+      - name: to print the env var
+        run: echo "${{ env.envvar }}" 
