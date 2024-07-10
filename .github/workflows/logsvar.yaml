@@ -3,10 +3,10 @@ on: [push]
 
 jobs:
   log-vars:
-    runs-on: ${{ vars }}
+    runs-on: ubuntu-latest
     env:
       secretvar: ${{ secrets.BOOLEAN_SECRET }}
-      envvar: ${{ vars.ENV_LEV_VAr}}
+      envvar: ${{ vars.ENV_LEV_VAR}}
     steps:
       - name: to print the secret value
         run: echo "${{ env.secretvar }}"
