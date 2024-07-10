@@ -1,0 +1,14 @@
+name: logsvar
+on: [push]
+
+jobs:
+  log-vars:
+    runs-on: ${{ vars }}
+    env:
+      secretvar: ${{ secrets.BOOLEAN_SECRET }}
+      envvar: ${{ vars.ENV_LEV_VAr}}
+    steps:
+      - name: to print the secret value
+        run: echo "${{ secretvar }}"
+      - name: to print the env var
+        run: echo "${{ envvar }}" 
