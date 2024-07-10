@@ -1,6 +1,28 @@
 name: manual trigger
 on:
     workflow_dispatch:
+        inputs:
+            strings:
+                description: A String input
+                type: string
+                required: true
+                default: Default-value
+            number:
+                description: give a number
+                type: number
+                required: true
+            options:
+                description: select an option
+                required: true
+                type: choice
+                options:
+                    - Option 1
+                    - Option 2
+                    - Option 3
+            
+
+
+
 
 jobs:
     Echo-jobs:
