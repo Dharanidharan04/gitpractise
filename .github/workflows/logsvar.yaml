@@ -9,6 +9,6 @@ jobs:
       envvar: ${{ vars.ENV_LEV_VAr}}
     steps:
       - name: to print the secret value
-        run: echo "${{ secretvar }}"
+        run: echo "${{ env.secretvar }}"
       - name: to print the env var
-        run: echo "${{ envvar }}" 
+        run: echo "${{ env.envvar }}" 
