@@ -17,7 +17,7 @@ jobs:
         outputs:
             matrix-array: ${{steps.matrix.outputs.result}}
         steps:
-            - uses: actions/github-scripts@v6
+            - uses: actions/github-script@v6
               id: matrix
               with:
                 script: "return { os:context.payload.inputs['os'].split(','), 'version':context.payload.inputs['version'].split(',') }"
