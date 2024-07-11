@@ -1,0 +1,32 @@
+name: build & publish
+on:
+    release:
+        types: [published]
+jobs:
+    pushtodockerhub:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: login to docker
+              uses: docker/login-action@v2
+              with:
+                username: ${{ secrets.DOCKER_USER_NAME }}
+                password: ${{ secrets.DOCKER_PASS }}
+            - name: extract-metadata
+              id: metadata
+              uses: docker/metadata-action@v4
+              with:
+                images: dharanidharan0411/sample-image
+                tags: |
+                  type=semver,pattern={{version}}
+                  type=semver,pattern={{major}}.{{minor}}
+            - name: build & publish
+              uses: docker/build-push-action@v4
+              with:
+                context: .
+                file: ./Dockerfile
+                push: true
+                tags: ${{ steps.metadata.outputs.tags }}
+                labels: ${{ steps.metadata.outputs.labels }}
+
+
