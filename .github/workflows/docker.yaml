@@ -14,3 +14,7 @@ jobs:
               run: |
                node -v
                cat /etc/os-release
+            - name: node version
+              uses: docker://node:18.6-alpine3.17
+              with:
+                args: -p 5+10

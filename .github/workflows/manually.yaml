@@ -32,5 +32,5 @@ jobs:
             - run: |
                 echo "String ${{inputs.strings}}"
                 echo "number ${{inputs.number}}"
-                echo "Option ${{inputs.options}}"
+                echo "Options ${{inputs.options}}"
                 
