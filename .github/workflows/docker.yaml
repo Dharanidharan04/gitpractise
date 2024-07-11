@@ -17,4 +17,4 @@ jobs:
             - name: node version
               uses: docker://node:18.16-alpine3.17
               with:
-                args: -p 5+10
+                args: 5+10
